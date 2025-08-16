@@ -3,7 +3,7 @@
 ![Build Status](https://github.com/jhonathanc/ps3netsrv-openwrt/workflows/CI/badge.svg)
 
 OpenWrt ps3netsrv feed for use with the OpenWrt SDK.
-
+ 
 You can find binaries for some platforms on:
 https://github.com/jhonathanc/ps3netsrv/releases
 
