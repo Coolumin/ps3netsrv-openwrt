@@ -41,12 +41,12 @@ jobs:
         tar xf $(basename "${{ matrix.sdk_url }}")
         cd $(basename "${{ matrix.sdk_url }}" .tar.xz)
         echo $USIGN_SECRET | base64 -d > key-build
-        echo "src-git ps3netsrv_feed https://github.com/jhonathanc/ps3netsrv-openwrt.git" >> feeds.conf.default
+        echo "src-git ps3netsrv_feed https://github.com/Coolumin/ps3netsrv-openwrt.git" >> feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         make defconfig
         make package/ps3netsrv/download
-        make package/ps3netsrv/prepare -d
+        make package/ps3netsrv/prepare -j1 V=s
         make package/ps3netsrv/compile 
       env:
         USIGN_SECRET: ${{ secrets.USIGN_SECRET }}
