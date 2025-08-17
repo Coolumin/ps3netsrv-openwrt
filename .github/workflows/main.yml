@@ -132,7 +132,7 @@ jobs:
             upload_name: ps3netsrv_i386_pentium-mmx
             build_path: openwrt-sdk-22.03.3-x86-geode_gcc-11.2.0_musl.Linux-x86_64
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: build packages
       run: |
         cd $HOME
@@ -163,8 +163,8 @@ jobs:
         ./scripts/feeds install -a
         make defconfig
         make package/ps3netsrv/download
-        make package/ps3netsrv/prepare -d 
-        make package/ps3netsrv/compile -d
+        make package/ps3netsrv/prepare -V=sc 
+        make package/ps3netsrv/compile 
       env:
         USIGN_SECRET: ${{ secrets.USIGN_SECRET }}
     - name: Upload artifact
