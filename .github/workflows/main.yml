@@ -46,7 +46,7 @@ jobs:
         ./scripts/feeds install -a
         make defconfig
         make package/ps3netsrv/download
-        make package/ps3netsrv/prepare -j1
+        make -j1 V=sc package/ps3netsrv/prepare
         make package/ps3netsrv/compile 
       env:
         USIGN_SECRET: ${{ secrets.USIGN_SECRET }}
